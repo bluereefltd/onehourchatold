@@ -2,6 +2,7 @@ Template.messageInput.events({
 
     'submit form': function (event, template) {
         event.preventDefault();
+        Session.set("autoScroll", true);
 
         var messageInput = event.currentTarget.elements["message"];
 
@@ -23,6 +24,7 @@ Template.messageInput.events({
         MeteorCamera.getPicture({correctOrientation: true}, function (error, data) {
 
             if (!error) {
+                Session.set("autoScroll", true);
 
                 Messages.insert({
                     createdAt: new Date(),

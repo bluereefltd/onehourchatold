@@ -11,13 +11,13 @@
 
 <template name="message">
 
-    <div class="comment">
+    <div class="{{selfCommentClass}} comment">
         <div class="content">
 
             <span class="author">{{author}}</span>
 
             <div class="metadata">
-                <span class="date">{{createdAt}}</span>
+                <span class="date">{{formattedDate}}</span>
             </div>
 
             <div class="text">
