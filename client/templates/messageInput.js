@@ -17,6 +17,20 @@ Template.messageInput.events({
 
     'click #login-welcome': function () {
         $('#login-sign-in-link').click();
+    },
+
+    'click #take-picture': function () {
+        MeteorCamera.getPicture({correctOrientation: true}, function (error, data) {
+
+            if (!error) {
+
+                Messages.insert({
+                    createdAt: new Date(),
+                    author: Meteor.user().username,
+                    picture: resizeImage(data)
+                })
+            }
+        });
     }
 
 });
