@@ -9,3 +9,5 @@ autopublish
 insecure
 semantic:ui-css
 less
+accounts-ui
+accounts-password

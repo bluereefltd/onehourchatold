@@ -1,18 +1,22 @@
 Template.messageInput.events({
 
-   'submit form': function (event, template) {
-       event.preventDefault();
+    'submit form': function (event, template) {
+        event.preventDefault();
 
-       var messageInput = event.currentTarget.elements["message"];
+        var messageInput = event.currentTarget.elements["message"];
 
-       Messages.insert({
-           author: 'Julien',
-           body: messageInput.value,
-           createdAt: new Date()
-       });
+        Messages.insert({
+            author: Meteor.user().username,
+            body: messageInput.value,
+            createdAt: new Date()
+        });
 
-       messageInput.value = '';
-       scrollToBottom();
-   }
+        messageInput.value = '';
+        scrollToBottom();
+    },
+
+    'click #login-welcome': function () {
+        $('#login-sign-in-link').click();
+    }
 
 });
