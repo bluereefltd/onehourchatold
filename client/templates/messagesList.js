@@ -1,7 +1,12 @@
+Template.messagesList.onCreated(function () {
+
+    this.subscribe('messages');
+});
+
 Template.messagesList.helpers({
 
     messages: function () {
-        return Messages.find();
+        return Messages.find({}, {sort: {createdAt: 1}});
     }
 });
 
